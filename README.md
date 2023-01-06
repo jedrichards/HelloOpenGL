@@ -25,7 +25,7 @@ brew install glfw
 
 ### GLEW
 
-[GLEW](https://glew.sourceforge.net/) is a library that operates at runtime to expose/link the OpenGL functions/extensions supported by the current system's GPU drivers.
+[GLEW](https://glew.sourceforge.net/) is a library that operates at runtime to link the OpenGL extensions actually supported by your current system's GPU drivers.
 
 ```sh
 brew install glew
