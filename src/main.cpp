@@ -112,9 +112,15 @@ int main(void) {
   glBindVertexArray(vao);
   glEnableVertexAttribArray(0);
 
-  // In the next line we describe the structure of our vertex attributes, in
-  // this case each vertex contains just one attribute, which is a 2 float
-  // position
+  // In the next line we describe the structure of our vertex attributes, so
+  // the data is usable in shaders. The data passed to the GPU is just a flat
+  // array so we have to tell OpenGL how to pick values out of it. We have just
+  // one attribute, a position, so there's just one call to
+  // glVertexAttribPointer. The first param `0` says we're describing the first
+  // (in our case only) vertext attribute. The next param `2` says it's
+  // comprised from 2 components the x and the y values. The next param
+  // `GL_FLOAT` sets its data type. The next param `sizeof(float) * 2` is the
+  // "stride", which is its size in bytes.
   glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
 
   // Shaders are programs that we define as strings, and send to be executed
