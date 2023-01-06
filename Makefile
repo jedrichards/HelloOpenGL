@@ -35,14 +35,17 @@ endif
 # Cocoa, IOKit, and CoreVideo are needed for static GLFW3.
 LINKER_FLAGS = -lglfw -lGLEW -framework Cocoa -framework OpenGL -framework IOKit -framework CoreVideo
 
+dir_guard=@mkdir -p $(@D)
 
 # APP_NAME specifies the name of our exectuable
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.cpp
+	@mkdir -p $(OBJ_PATH)
 	$(CC) -o $@ -c $< $(COMPILER_FLAGS) 
 
 #This is the target that compiles our executable
 $(APP_NAME): $(OBJ)
+	@mkdir -p $(BIN_PATH)
 	$(CC) $(OBJ) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(APP_PATH)
 	
 # clean all sources

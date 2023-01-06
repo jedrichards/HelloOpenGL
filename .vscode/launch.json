@@ -7,7 +7,8 @@
       "name": "Debug",
       "program": "${workspaceFolder}/bin/main",
       "args": [],
-      "cwd": "${workspaceFolder}"
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "Make::Debug"
     }
   ]
 }
